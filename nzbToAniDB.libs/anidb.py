@@ -239,9 +239,9 @@ for file in anidb.hash.hash_files(files, options.cache, (('ed2k', 'md5', 'sha1',
 				
 				if options.tvdb and tvdbinfo:
 					s = rename['tvdbepisodeformat']
-				elif (info['type'] == 'Movie' and rename['movieformat']):
+				elif (info['type'].lower() == 'movie' and rename['movieformat']):
 					s = rename['movieformat']
-				elif (info['type'] == 'OVA' and rename['ovaformat']):
+				elif (info['type'].lower() == 'ova' and rename['ovaformat']):
 					s = rename['ovaformat']
 				elif (rename['tvformat']):
 					s = rename['tvformat']
@@ -322,7 +322,7 @@ for file in anidb.hash.hash_files(files, options.cache, (('ed2k', 'md5', 'sha1',
 						fs = rename['tvdbseasonfolder']
 					else:
 						fs = rename['tvdbspecialsfolder']
-				elif (info['type'] == "Movie" and rename['foldernamemovie']):
+				elif (info['type'].lower() == "movie" and rename['foldernamemovie']):
 					f = rename['foldernamemovie']
 					fs = None
 				elif (rename['foldername']):
@@ -405,7 +405,7 @@ for file in anidb.hash.hash_files(files, options.cache, (('ed2k', 'md5', 'sha1',
 				while subdir.startswith('.'):
 					subdir = subdir[1:]
 
-				if (options.directorymovie and info['type'] == 'Movie'):
+				if (options.directorymovie and info['type'].lower() == 'movie'):
 					target_directory = options.directorymovie
 				else:
 					target_directory = options.directory
