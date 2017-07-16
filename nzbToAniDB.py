@@ -54,11 +54,8 @@ else:
 		print('Destination directory does not exist')
 		sys.exit(1)
 	
-	command = sys.executable + " " + os.path.join(os.path.dirname(sys.argv[0]), "nzbToAniDB.libs", "anidb.py") + " " + config['nzbtoanidb_switches'] + " '" + TargetPath + "'"
-	if (os.name != "posix"):
-		args = shlex.split(command, posix=False)
-	else:
-		args = shlex.split(command)
+	command = sys.executable + " " + os.path.join(os.path.dirname(sys.argv[0]), "nzbToAniDB.libs", "anidb.py") + " " + config['nzbtoanidb_switches'] + " \"" + TargetPath + "\""
+	args = shlex.split(command, posix=(os.name != "posix"))
 	
 	retcode = subprocess.call(args)
 	

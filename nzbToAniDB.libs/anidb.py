@@ -147,7 +147,7 @@ files = []
 remaining = deque(args)
 while remaining:
 	name = remaining.popleft()
-	name = name.replace("'", "")
+	name = name.replace("\"", "")
 	if not os.access(name, os.R_OK):
 		print('{0} {1}'.format(red('Invalid file:'), name))
 	elif os.path.isfile(name):
